@@ -1,46 +1,51 @@
 <template>
-  <el-menu
-    default-active="1-4-1"
-    class="el-menu-vertical-demo"
-    @open="handleOpen"
-    @close="handleClose"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
-    :collapse="isCollapse"
-  >
-    <h3>通用后台管理系统</h3>
-    <el-menu-item
-      @click="clickMenu(item)"
-      v-for="item in noChildren"
-      :index="item.name"
-      :key="item.name"
+  <div class="Aside">
+    <el-menu
+      default-active="1-4-1"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+      :collapse="isCollapse"
     >
-      <i :class="'el-icon-' + item.icon"></i>
-      <span slot="title">{{ item.label }}</span>
-    </el-menu-item>
-    <el-submenu
-      v-for="item in hasChildren"
-      :index="item.label"
-      :key="item.name"
-    >
-      <template slot="title">
+      <h3>{{ sysName }}</h3>
+      <el-menu-item
+        @click="clickMenu(item)"
+        v-for="item in noChildren"
+        :index="item.name"
+        :key="item.name"
+      >
         <i :class="'el-icon-' + item.icon"></i>
         <span slot="title">{{ item.label }}</span>
-      </template>
-      <el-menu-item-group v-for="subItem in item.children" :key="subItem.name">
-        <el-menu-item :index="subItem.path">{{ subItem.label }}</el-menu-item>
-      </el-menu-item-group>
-    </el-submenu>
-  </el-menu>
+      </el-menu-item>
+      <el-submenu
+        v-for="item in hasChildren"
+        :index="item.label"
+        :key="item.name"
+      >
+        <template slot="title">
+          <i :class="'el-icon-' + item.icon"></i>
+          <span slot="title">{{ item.label }}</span>
+        </template>
+        <el-menu-item-group
+          v-for="subItem in item.children"
+          :key="subItem.name"
+        >
+          <el-menu-item :index="subItem.path">{{ subItem.label }}</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
+    </el-menu>
+  </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "ComAsideVue",
   data() {
     return {
-      isCollapse: false,
       menuData: [
         {
           path: "/",
@@ -72,14 +77,14 @@ export default {
               name: "page1",
               label: "页面1",
               icon: "setting",
-              url: "Other/PageOne",
+              url: "Else/PageOne",
             },
             {
               path: "/page2",
               name: "page2",
-              label: "页面1",
+              label: "页面2",
               icon: "setting",
-              url: "Other/PageTwo",
+              url: "Else/PageTwo",
             },
           ],
         },
@@ -92,6 +97,10 @@ export default {
     },
     hasChildren() {
       return this.menuData.filter((item) => item.children);
+    },
+    ...mapState("aside", ["isCollapse"]),
+    sysName() {
+      return this.isCollapse ? "系统" : "通用后台管理系统";
     },
   },
   methods: {
@@ -119,6 +128,8 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+}
+.el-menu {
   height: 100vh;
   border: none;
   h3 {
@@ -128,6 +139,7 @@ export default {
     line-height: 48px;
     font-size: 16px;
     font-weight: 400px;
+    white-space: nowrap;
   }
 }
 </style>

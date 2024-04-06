@@ -1,10 +1,10 @@
 <template>
   <el-container>
-    <el-aside width="200px">
+    <el-aside width="auto">
       <ComAsideVue />
     </el-aside>
     <el-container>
-      <el-header>
+      <el-header style="padding: 0">
         <ComHeaderVue />
       </el-header>
       <el-main><router-view></router-view></el-main>
@@ -25,7 +25,4 @@ export default {
 </script>
 
 <style>
-.el-header {
-  padding: 0;
-}
 </style>
