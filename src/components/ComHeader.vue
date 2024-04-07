@@ -4,7 +4,6 @@
     <el-menu
       class="el-menu-demo"
       mode="horizontal"
-      @select="handleSelect"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#fff"
@@ -15,14 +14,14 @@
       </el-menu-item>
 
       <el-menu-item index="3" style="float: right">
-        <el-dropdown>
+        <el-dropdown @command="handleClick">
           <span class="el-dropdown-link" style="color: #fff">
             <img src="@/assets/lufei.jpg" class="users" />
             <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人中心</el-dropdown-item>
-            <el-dropdown-item>退出</el-dropdown-item>
+            <el-dropdown-item command="person">个人中心</el-dropdown-item>
+            <el-dropdown-item command="logout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-menu-item>
@@ -31,6 +30,7 @@
 </template>
 
 <script>
+import Cookies from "js-cookie";
 import { mapMutations } from "vuex";
 export default {
   name: "ComHeaderVue",
@@ -46,12 +46,16 @@ export default {
     },
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
     handleFold() {
       this.folderChoice = !this.folderChoice;
       this.SHIFT_ISCOLLAPSE();
+    },
+    handleClick(command) {
+
+      if (command === 'logout') {
+        Cookies.remove('token')
+        this.$router.push('/login')
+      }
     },
     ...mapMutations("aside", ["SHIFT_ISCOLLAPSE"]),
   },

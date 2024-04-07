@@ -69,7 +69,7 @@ export default {
           url: "UserManage/UserManage",
         },
         {
-          label: "其他",
+          label: "拓展",
           icon: "location",
           children: [
             {

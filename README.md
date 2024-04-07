@@ -1,24 +1,33 @@
-# backend-manage-system
+# 后台管理系统（基于Vue2实现）
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+# 1. 项目说明
 
-### Lints and fixes files
-```
-npm run lint
-```
+​	本应用是基于vue2实现的后台管理系统，前端组件来自ElementUI，同时使用到了Vuex，后台数据通过mock和axios产生并获取。
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+# 2. 使用说明
+
+- 生成版本使用：`node serve`（dist文件夹中为生产版本内容，serve文件夹中为服务端口）
+- 开发版本使用：`npm run serve`
+
+- 执行上述任意一条指令后即可登陆页面进行使用（登陆账号密码均为"Admin"）
+
+
+
+# 3. 效果展示
+
+**登陆界面**
+
+![](./md_pic/登陆界面.png)
+
+**主界面**
+
+![](./md_pic/主页面.png)
+
+**用户管理界面**
+
+![](./md_pic/用户管理界面.png)
+

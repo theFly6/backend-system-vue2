@@ -163,7 +163,6 @@ export default {
           type: "pie",
         },
       ];
-      console.log("@@@3", options);
       // 基于准备好的dom，初始化echarts实例
       const echats = echarts.init(this.$refs.echarts3);
       // 使用刚指定的配置项和数据显示图表。
@@ -180,7 +179,7 @@ export default {
       this.echartsLines();
       this.echartsBars();
       this.echartsPies();
-      console.log(res);
+      // console.log(res);
     });
   },
 };

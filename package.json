@@ -12,6 +12,8 @@
     "core-js": "^3.8.3",
     "echarts": "^5.5.0",
     "element-ui": "^2.15.14",
+    "express": "^4.19.2",
+    "js-cookie": "^3.0.5",
     "less-loader": "^12.2.0",
     "mockjs": "^1.1.0",
     "vue": "^2.6.14",

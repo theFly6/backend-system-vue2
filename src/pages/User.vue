@@ -149,9 +149,7 @@ export default {
   methods: {
     submit() {
       this.$refs.form.validate((validate) => {
-        console.log('即将提交')
         if (validate) {
-          console.log('合法，正在提交')
           // 填写表单提交、处理逻辑
           if (this.subType == 0)
             addUser(this.form).then(() => this.updateUser()).then(() => this.handleClose())
@@ -181,7 +179,6 @@ export default {
       this.dialogVisible = true
     },
     handleDelete(person) {
-      console.log(person)
       this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -207,7 +204,6 @@ export default {
       })
     },
     toPage(nextPage) {
-      console.log(nextPage)
       this.curPage = nextPage - 1
       this.updateUser()
     },

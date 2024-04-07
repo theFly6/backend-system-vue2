@@ -11,3 +11,6 @@ export const getUser = () => http.get('/user/getUser')
 export const addUser = (params) => http.post('/user/addUser', params)
 export const delUser = (params) => http.post('/user/delUser', params)
 export const editUser = (params) => http.post('/user/editUser', params)
+
+// 用户登陆
+export const checkPemission = (params) => http.post('/permission/login', params)

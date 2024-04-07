@@ -27,9 +27,7 @@ export default {
         return UserList
     },
     addUser: (toAdd) => {
-        console.log('toAdd', toAdd)
-        console.log(JSON.parse(toAdd.body))
-        console.log()
+        // console.log('toAdd', toAdd)
         const newUser = {
             id: mockjs.Random.guid(),
             ...JSON.parse(toAdd.body),
