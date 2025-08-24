@@ -4,7 +4,7 @@
 
 # 1. 项目说明
 
-​	本应用是基于vue2实现的后台管理系统，前端组件来自ElementUI，同时使用到了Vuex，后台数据通过mock和axios产生并获取。
+​	本应用是基于vue2实现的后台管理系统，前端使用了ElementUI组件以及Vuex，后台数据通过mock和axios产生并获取。
 
 
 
